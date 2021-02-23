@@ -1,8 +1,14 @@
 import Axios from 'axios';
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/CartConstants';
 
-export const addToCart = (productId, qty, userId) => async (dispatch, getState) => {
-  const { data } = await Axios.get(`/product/BHA/Y01/${productId}.json`);
+export const addToCart = (productId, qty, userId, userCom) => async (dispatch) => {
+  console.log(productId)
+  const yearRes = await Axios.get("/year.json");
+  const year = yearRes.data.session;
+  console.log(year)
+  const { data } = await Axios.get(`/product/${userCom}/${year}/${productId}.json`);
+  
+  console.log("product : " + data)
   dispatch({
     type: CART_ADD_ITEM,
     payload: {

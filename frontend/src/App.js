@@ -30,8 +30,9 @@ function App() {
     <Route path="/product/:id" component={ProductScreen}></Route>
     <Route path="/products" component={ ProductHomeScreen} exact></Route>
     <Route path="/purchases" component={ ScanScreen } exact></Route>
+    <Route path="/objectives" component={ ObjectiveScreen } exact></Route>
     <Route path="/" component={SigninScreen}></Route>
-    <Route path="/objectives" component={ObjectiveScreen}></Route>
+    
     </Switch>
     )
   return (

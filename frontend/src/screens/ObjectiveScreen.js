@@ -15,25 +15,27 @@ const userSignin = useSelector((state) => state.userSignin);
 const { userInfo } = userSignin;
 const userId = userInfo.company;
   
-  const getObjectiveDetails = async () => {
-
-
-    const {data} = await Axios.get(`/companies/${userId}.json`)
-    
-    console.log(data)
-
+  const getObjectiveDetails = async (userId, userInfo) => {
+  const {data} = await Axios.get(`/companies/${userId}.json`)
+  console.log(data)
+  return data;
+ 
   };
 
   useEffect(() => {
     console.log("hi");
-    getObjectiveDetails().then((objectiveDetails) => {
-      setObjectiveDetails(objectiveDetails);
-
+    getObjectiveDetails(userId).then((objectiveDetails) => {
+      console.log("something")
       console.log(objectiveDetails)
-      
-    });
-  }, );
+      setObjectiveDetails(objectiveDetails);
+      console.log(
+        "Here's the productDetails that will be saved into productDetails state:"
+      );
+     console.log(objectiveDetails)
 
+    });
+  }, [] );
+  
   
   return (
 
@@ -43,7 +45,7 @@ const userId = userInfo.company;
       
          <div>
              <h1>{objectiveDetails.name}</h1>
-      <h2>{objectiveDetails.objectives}</h2>
+            <h2>{objectiveDetails.objectives}</h2>
             </div>
         
       ) : (

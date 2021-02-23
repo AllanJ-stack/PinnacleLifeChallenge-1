@@ -8,6 +8,7 @@ export default function CartScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const userId = userInfo.id;
+  const userCom = userInfo.company;
 
   const productId = props.match.params.id;
   const qty = props.location.search //variable return
@@ -19,9 +20,9 @@ export default function CartScreen(props) {
   
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, qty, userId));
+      dispatch(addToCart(productId, qty, userId, userCom));
     }
-  }, [dispatch, productId, qty, userId]);
+  }, [dispatch, productId, qty, userId, userCom]);
   
   const removeFromCartHandler = (productId) => {
     // delete action
@@ -63,7 +64,8 @@ export default function CartScreen(props) {
                           addToCart(
                             item.product,
                             Number(e.target.value),
-                            userId
+                            userId,
+                            userCom
                           )
                         )
                       }
