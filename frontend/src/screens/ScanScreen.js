@@ -21,7 +21,7 @@ class App extends Component {
       const scanCode = result.codeResult.code;
       console.log("scancode:" + scanCode)
       let companyCode = scanCode.substr(0, 3);
-      this.state.companyCode
+      //this.state.companyCode
       console.log(companyCode)
 
       //const yearRes= await Axios.get('/year.json')

@@ -10,7 +10,27 @@ export const signin = (username, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { username, password } });
   try {
     const { data } = await Axios.get(`/accounts/${username}.json`);
-    
+    if (data.company === "admin")
+    {
+    if (password === data.password)
+    {
+      data.username = username
+      console.log(username)
+      dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+    }
+    else 
+    {
+      dispatch({
+        type: USER_SIGNIN_FAIL,
+        payload: "Sign in Failure"
+      });
+      
+    }
+  }
+  else 
+  { 
+    console.log("user")
     if (password === data.password)
     {
       data.username = username
@@ -25,6 +45,7 @@ export const signin = (username, password) => async (dispatch) => {
       });
       
     }
+  }
 
   } catch (error) {
     dispatch({

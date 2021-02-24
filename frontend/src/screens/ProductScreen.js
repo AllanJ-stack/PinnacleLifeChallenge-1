@@ -8,6 +8,8 @@ import Axios from "axios";
 import { useSelector } from 'react-redux';
 
 export default function ProductScreen(props) {
+
+  
   const productId = props.match.params.id;
   
   const [productDetails, setProductDetails] = useState({});

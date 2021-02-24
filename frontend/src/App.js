@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import ProductHomeScreen from './screens/ProductHomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
@@ -24,17 +24,8 @@ function App() {
     dispatch(signout());
   };
 
-  let routes = (
-    <Switch>
-    <Route path="/cart/:id?" component={CartScreen}></Route>
-    <Route path="/product/:id" component={ProductScreen}></Route>
-    <Route path="/products" component={ ProductHomeScreen} exact></Route>
-    <Route path="/purchases" component={ ScanScreen } exact></Route>
-    <Route path="/objectives" component={ ObjectiveScreen } exact></Route>
-    <Route path="/" component={SigninScreen}></Route>
+
     
-    </Switch>
-    )
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -57,6 +48,7 @@ function App() {
               )}
             </Link>
             <Link to="/budgetsheet">My Budget Sheet</Link>
+            
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
@@ -64,7 +56,7 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="#signout" onClick={signoutHandler}>
+                    <Link to="/" onClick={signoutHandler}>
                       Sign Out
                     </Link>
                   </li>
@@ -73,12 +65,29 @@ function App() {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  {userInfo.username} <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
  
             
           </div>
         </header>
         <main>
-        {routes}
+        <Route path="/cart/:id?" component={CartScreen}></Route>
+        <Route path="/product/:id" component={ProductScreen}></Route>
+        <Route path="/products" component={ ProductHomeScreen}></Route>
+        <Route path="/purchases" component={ ScanScreen }></Route>
+        <Route path="/objectives" component={ ObjectiveScreen }></Route>
+       <Route path="/signin" component={SigninScreen}></Route>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
