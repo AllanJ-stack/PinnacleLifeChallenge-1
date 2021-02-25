@@ -9,19 +9,17 @@ import { useSelector } from 'react-redux';
 
 export default function ProductScreen(props) {
   const productId = props.match.params.id;
+  const userCompany = productId.substr(0, 3);
   
   const [productDetails, setProductDetails] = useState({});
   const [qty, setQty] = useState(1);
-
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  const userId = userInfo.company;
+  
   
   const getProductDetails = async (productId) => {
     const yearRes= await Axios.get('/year.json')
     const year = yearRes.data.session;
     
-    const { data } = await Axios.get(`/product/${userId}/${year}.json?orderBy="_id"&equalTo="${productId}"`); // "get product details from product id"
+    const { data } = await Axios.get(`/product/${userCompany}/${year}.json?orderBy="_id"&equalTo="${productId}"`); // "get product details from product id"
 
     const product = data[productId];
     console.log(product);

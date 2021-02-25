@@ -48,18 +48,16 @@ export default function YearScreen() {
         </div>
         <div>
           <label htmlFor="yearText">Set Year</label>
-          <input
+          {/* <input
             type="text"
             id="yearText"
             placeholder="Enter Year (E.g. Y01, Y02, Y03)"
-            required
-            onClick={(e) =>dispatch(setYearAction(setYearDetails))}
-          ></input>
+          ></input> */}
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">
-            Insert
+          <button className="primary" type="submit" onClick={(e) =>dispatch(setYearAction(setYearDetails))}>
+            Next Year
           </button>
         </div>
         <div>
