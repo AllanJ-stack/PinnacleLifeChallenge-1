@@ -15,6 +15,8 @@ export default function SigninScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
 
+  console.log("userInfo" + userInfo)
+
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();

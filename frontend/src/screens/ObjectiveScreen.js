@@ -14,6 +14,7 @@ const [objectiveDetails, setObjectiveDetails] = useState({})
 const userSignin = useSelector((state) => state.userSignin);
 const { userInfo } = userSignin;
 const userId = userInfo.company;
+
   
   const getObjectiveDetails = async (userId, userInfo) => {
   const {data} = await Axios.get(`/companies/${userId}.json`)
@@ -25,7 +26,7 @@ const userId = userInfo.company;
   useEffect(() => {
     console.log("hi");
     getObjectiveDetails(userId).then((objectiveDetails) => {
-      console.log("something")
+
       console.log(objectiveDetails)
       setObjectiveDetails(objectiveDetails);
       console.log(
@@ -34,7 +35,7 @@ const userId = userInfo.company;
      console.log(objectiveDetails)
 
     });
-  }, [] );
+  }, [userId] );
   
   
   return (

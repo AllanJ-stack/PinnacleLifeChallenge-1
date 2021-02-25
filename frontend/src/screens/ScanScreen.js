@@ -24,13 +24,13 @@ class App extends Component {
       //this.state.companyCode
       console.log(companyCode)
 
-      //const yearRes= await Axios.get('/year.json')
-      //const year = yearRes.data.session
-      this.props.history.push(`/product/${scanCode}`)
-      //this.props.history.push(`/product/${companyCode}/${year}/${scanCode}`)
+      const yearRes= await Axios.get('/year.json')
+      const year = yearRes.data.session
+      //this.props.history.push(`/product/${scanCode}`)
+      this.props.history.push(`/product/${companyCode}/${year}/${scanCode}`)
       
-      this.setState({ results: this.state.results.concat([result]) })
-    
+      //this.setState({ results: this.state.results.concat([result]) })
+      // 
   }
 
   render() {
