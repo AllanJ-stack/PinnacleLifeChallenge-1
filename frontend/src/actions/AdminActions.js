@@ -42,17 +42,24 @@ export const setNextYearAction = (yearDetails) => async (dispatch) => {
       
       // 2: Add this record into the sell_trans of the seller of this item
       		// an axios.patch step
-        //const checkBuy = await Axios.get(`users/${userId}/buy_trans.json`)
+        const addSellTrans = await Axios.patch(`users/${cartProductSeller}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[userId]: qty})
         
-          //const addSellTrans = await Axios.patch(`users/${userId}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[cartProductSeller]: qty})
+        //const addSellTrans = await Axios.patch(`users/${userId}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[cartProductSeller]: qty})
 
           
       // 3: Delete this record from the cart
-      		// an axios.delete step
+          // an axios.delete step
+          const deleteCart = await Axios.delete(`users/${userId}/cart.json`)
+
+
+
       
       
     
     }
+    const redirect = (props) => {
+      props.history.push("/product");
+    };
     
     
   }
