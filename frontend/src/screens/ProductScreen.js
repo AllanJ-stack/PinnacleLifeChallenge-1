@@ -19,11 +19,17 @@ export default function ProductScreen(props) {
     const yearRes= await Axios.get('/year.json')
     const year = yearRes.data.session;
     
-    const { data } = await Axios.get(`/product/${userCompany}/${year}.json?orderBy="_id"&equalTo="${productId}"`); // "get product details from product id"
+    console.log(userCompany)
+    console.log(year)
+    console.log(productId)
 
+    
+    const { data } = await Axios.get(`/product/${userCompany}/${year}.json?orderBy="_id"&equalTo="${productId}"`); // "get product details from product id"
+    console.log(data)
     const product = data[productId];
+    
     console.log(product);
-    return product
+     return product;
   };
 
   useEffect(() => {

@@ -27,8 +27,8 @@ class App extends Component {
       const yearRes= await Axios.get('/year.json')
       const year = yearRes.data.session
       //this.props.history.push(`/product/${scanCode}`)
-      this.props.history.push(`/product/${companyCode}/${year}/${scanCode}`)
-      
+      //this.props.history.push(`/product/${companyCode}/${year}/${scanCode}`)
+      this.props.history.push(`/product/${scanCode}`)
       //this.setState({ results: this.state.results.concat([result]) })
       // 
   }

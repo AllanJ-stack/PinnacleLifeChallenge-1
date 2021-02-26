@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {setYearAction} from '../actions/AdminActions'
+import {setNextYearAction} from '../actions/AdminActions'
 //import { Link } from 'react-router-dom';
 //import { signin } from '../actions/userActions';
 //import LoadingBox from '../components/LoadingBox';
@@ -17,11 +17,19 @@ export default function YearScreen() {
     return year;
   };
   const dispatch = useDispatch();
-  const submitYearHandler = (e) => {
-    e.preventDefault();
-    dispatch(setYearAction(yearDetails));
+  const increaseYearHandler = () => {
+    //e.preventDefault();
+    let newYear = increasedYear(yearDetails)
+    console.log("Hello new year" + newYear)
+    dispatch(setNextYearAction(newYear));
   };
 
+  const increasedYear = (year) => {
+    let currentYearDigit = Number(year.substr(-1))
+    let newYear = String(currentYearDigit + 1)
+    let newYearFormattedString = year.replace(currentYearDigit, newYear)
+    return newYearFormattedString
+  }
 
   useEffect(() => {
     console.log("hi");
@@ -39,7 +47,7 @@ export default function YearScreen() {
 
   return (
     <div>
-      <form className="form" onSubmit={submitYearHandler}>
+      <div className="form">
         <div>
           <h1>Admin Dashboard</h1>
         </div>
@@ -56,14 +64,14 @@ export default function YearScreen() {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit" onClick={(e) =>dispatch(setYearAction(setYearDetails))}>
+          <button className="primary" onClick={() =>increaseYearHandler()}>
             Next Year
           </button>
         </div>
         <div>
           <label />
         </div>
-      </form>
+      </div>
     </div>
   );
 }

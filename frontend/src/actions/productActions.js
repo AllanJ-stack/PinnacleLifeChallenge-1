@@ -23,11 +23,12 @@ export const listProducts = (userId) => async (dispatch) => {
   }
 };
 
-export const detailsProduct = (userId, year, productId) => async (dispatch) => {
+export const detailsProduct = (year, productId) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
   try {
+    const userCompany = productId.substr(0, 3);
     const { data } = await Axios.get(
-      `/product/${userId}/${year}.json?orderBy="_id"&equalTo="${productId}"`
+      `/product/${userCompany}/${year}.json?orderBy="_id"&equalTo="${productId}"`
     );
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
