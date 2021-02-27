@@ -9,6 +9,7 @@ import ScanScreen from "./screens/ScanScreen";
 import ObjectiveScreen from "./screens/ObjectiveScreen";
 import { signout } from "./actions/userActions";
 import DashboardScreen from "./screens/DashboardScreen"
+import BudgetSheetScreen from "./screens/BudgetSheetScreen";
 
 export default function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -99,6 +100,7 @@ export default function App(props) {
           <Route path="/objectives" component={ObjectiveScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/dashboard" component={DashboardScreen}></Route>
+          <Route path="/budgetsheet" component={BudgetSheetScreen}></Route>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

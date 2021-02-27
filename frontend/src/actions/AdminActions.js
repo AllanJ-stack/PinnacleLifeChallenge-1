@@ -19,8 +19,9 @@ export const setNextYearAction = (yearDetails) => async (dispatch) => {
     // For each user(student) that has records under 'users'
     for ( let [userId, userRecord] of Object.entries(usersRecords)) {
 
-
-	// For each item that is under this user's cart
+    if (userRecord.cart)
+    {
+      	// For each item that is under this user's cart
   for(let [cartProductId,cartProductSellersRecord] of Object.entries(userRecord.cart)){
   
     // For each seller of this item in the cart
@@ -57,12 +58,14 @@ export const setNextYearAction = (yearDetails) => async (dispatch) => {
       
     
     }
-    const redirect = (props) => {
-      props.history.push("/product");
-    };
+
     
     
   }
+      
+    }// end if 
+
+
   
   
 }
