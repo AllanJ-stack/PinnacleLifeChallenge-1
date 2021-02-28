@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 // import MessageBox from '../components/MessageBox';
 import { Link } from 'react-router-dom';
 import Axios from "axios";
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 
 export default function ProductScreen(props) {
   const productId = props.match.params.id;

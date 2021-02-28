@@ -6,7 +6,7 @@ const {
   } = require('../constants/BudgetSheetConstants');
   
   export const budgetSheetReducer = (
-    state = { loading: true, budgetDetails: [] }, //budget set empty array
+    state = { loading: true, budgetDetails: {} }, //empty object
     action
   ) => {
     switch (action.type) {

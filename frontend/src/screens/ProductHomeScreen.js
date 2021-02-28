@@ -13,7 +13,7 @@ export default function ProductHomeScreen() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const userId = userInfo.company;
- console.log(productList);
+ console.log(products);
 
 
   useEffect(() => {

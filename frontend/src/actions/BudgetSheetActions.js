@@ -24,9 +24,10 @@ const prevYears = (currentYear) => {
 }
 
 export const budgetSheetlist = (userId) => async (dispatch) => {
-  dispatch({ type: BUDGETSHEET_REQUEST  });
-console.log("In budgetSheetlist")
+  dispatch({ type: BUDGETSHEET_REQUEST});
+
   try {
+
     const yearRes = await Axios.get("/year.json");
     const year = yearRes.data.session;
 
@@ -99,7 +100,8 @@ for (let prevYear of prevYearsArr){
 	 	// For me to sum up the total quantity of product
      let totalProductQty = 0
      for(let [userId,qty] of Object.entries(productRecord)){ // To get the total quantity sold for this product
-     	totalProductQty += qty
+       totalProductQty += qty
+       
      }
     console.log(`Income: The total quantity of product(${productId}) sold is ${totalProductQty}`)
      // To get the total commision of this item
