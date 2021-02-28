@@ -7,6 +7,7 @@ import {
   import { userSigninReducer } from './reducers/userReducers';
   import { cartReducer } from './reducers/CartReducers';
   import scannedItems from './reducers/ScannedItems'
+  import {budgetSheetReducer} from './reducers/BudgetSheetReducers'
   
   const initialState = {
     userSignin: {
@@ -26,6 +27,7 @@ const reducer = combineReducers({
   cart: cartReducer,
   scanned: scannedItems,
   userSignin: userSigninReducer,
+  budgetSheetListing : budgetSheetReducer
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

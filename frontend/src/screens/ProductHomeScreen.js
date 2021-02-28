@@ -9,18 +9,16 @@ export default function ProductHomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+  
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const userId = userInfo.company;
- 
-  
+ console.log(productList);
 
 
   useEffect(() => {
     dispatch(listProducts(userId));
   }, [dispatch, userId]);
-
-  //console.log(Object.entries(products))
 
   return (
     <div>

@@ -29,9 +29,7 @@ export default function CartScreen(props) {
     dispatch(removeFromCart(userId, productId));
   };
 
-  const checkoutHandler = () => {
-    props.history.push("/signin?redirect=shipping");
-  };
+
 
   return (
     <div className="row top">
@@ -103,14 +101,6 @@ export default function CartScreen(props) {
               </h2>
             </li>
             <li>
-              <button
-                type="button"
-                onClick={checkoutHandler}
-                className="primary block"
-                disabled={cartItems.length === 0}
-              >
-                Proceed to Checkout
-              </button>
             </li>
           </ul>
         </div>

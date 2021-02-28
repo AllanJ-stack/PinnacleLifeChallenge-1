@@ -27,7 +27,7 @@ export default function App(props) {
       <div className="grid-container">
         <header className="row">
           <div>
-            <Link className="brand" to="/">
+            <Link className="brand" to="/signin">
               Pinnacle Life Challenge
             </Link>
           </div>

@@ -6,14 +6,14 @@ const {
   } = require('../constants/BudgetSheetConstants');
   
   export const budgetSheetReducer = (
-    state = { loading: true, budget: [] }, //budget set empty array
+    state = { loading: true, budgetDetails: [] }, //budget set empty array
     action
   ) => {
     switch (action.type) {
       case BUDGETSHEET_REQUEST:
         return { loading: true };
       case BUDGETSHEET__SUCCESS:
-        return { loading: false, products: action.payload };
+        return { loading: false, budgetDetails: action.payload };
       case BUDGETSHEET__FAIL:
         return { loading: false, error: action.payload };
       default:
