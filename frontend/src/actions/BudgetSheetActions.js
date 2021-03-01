@@ -70,7 +70,6 @@ for (let prevYear of prevYearsArr){
 
   // ================================TO GET TOTAL INCOME VALUES===============================
   // a. Get current year Salary
-  // let currYearSalary = 0
   const currYearSalaryRes = await Axios.get(`/companies/${userCompany}/salary/${prevYear}.json`) 
   const currYearSalary = currYearSalaryRes.data
   console.log(currYearSalary)
@@ -90,7 +89,6 @@ for (let prevYear of prevYearsArr){
       console.log(productId)
      // For every items sold
      // i. Get the commision amt for this item
-     //let productCommission = 150 // to be replaced -- get from firebase with axios.get.... with productId
      
      const productCommissionRes = await Axios.get(`companies/${userCompany}/commission/${prevYear}/${productId}.json`)
      const productCommission = productCommissionRes.data;
@@ -98,7 +96,7 @@ for (let prevYear of prevYearsArr){
      
     
     // ii. Multiply by the quantity of item to get the total commision of this item
-	 	// For me to sum up the total quantity of product
+	 	// to sum up the total quantity of product
      let totalProductQty = 0
      for(let [userId,qty] of Object.entries(productRecord)){ // To get the total quantity sold for this product
        totalProductQty += qty
@@ -133,7 +131,6 @@ for (let prevYear of prevYearsArr){
      // For every item bought
     // i. Get the cost amount for this particular item
     console.log(productId)
-    //let productCost = 150 // to be replaced -- get product cost from firebase with axios.get.... with productId and particular prev year
     const productCostRes =  await Axios.get(`product/${userCompany}/${prevYear}/${productId}/priceValue.json`)
     const productCost = productCostRes.data
     // ii. Multiply by the quantity of item to get the total expense of this item

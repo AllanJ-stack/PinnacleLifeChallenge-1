@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { detailsProduct } from '../actions/productActions';
- import LoadingBox from '../components/LoadingBox';
-// import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 import { Link } from 'react-router-dom';
 import Axios from "axios";
-//import { useSelector } from 'react-redux';
+
 
 export default function ProductScreen(props) {
   const productId = props.match.params.id;

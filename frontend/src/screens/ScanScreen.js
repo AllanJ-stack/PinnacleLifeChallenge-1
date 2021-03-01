@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Scanner from '../components/Scanner'
-import Result from './Result'
+import Result from './Result1'
 import Axios from 'axios'
 
 
@@ -26,11 +26,8 @@ class App extends Component {
 
       const yearRes= await Axios.get('/year.json')
       const year = yearRes.data.session
-      //this.props.history.push(`/product/${scanCode}`)
-      //this.props.history.push(`/product/${companyCode}/${year}/${scanCode}`)
       this.props.history.push(`/product/${scanCode}`)
-      //this.setState({ results: this.state.results.concat([result]) })
-      // 
+  
   }
 
   render() {

@@ -17,11 +17,6 @@ export default function BudgetSheetScreen() {
 console.log(userId)
 
 
-  // useEffect(() => {
-  //   console.log("change detected")
-  //   console.log(budgetSheetListing)
-  // }, [budgetSheetListing]);
-
   useEffect(() => {
     dispatch(budgetSheetlist(userId));
   }, [dispatch, userId]);

@@ -28,57 +28,25 @@ export const setNextYearAction = (yearDetails) => async (dispatch) => {
     for(let [cartProductSeller, qty] of Object.entries(cartProductSellersRecord)){
     	
     	console.log(userId + " bought from " + cartProductSeller + " product(" + cartProductId + ") of qty:" + qty) // this should contain all the info you need to do the below steps
-      
-      // Do the below.
-      // 1: Add this record into buy_trans of this this person who intends to buy this item in the cart
-      
-      //let sellerId = productId.substr(0, 6);
+
       console.log(userId)
       console.log(year)
       console.log(cartProductId)
       console.log(cartProductSeller)
       const addBuyTrans = await Axios.patch(`users/${userId}/buy_trans/${oldYearFormattedString}/${cartProductId}.json`, {[cartProductSeller]: qty})
-           // an axios.patch step
-      
-      
-      // 2: Add this record into the sell_trans of the seller of this item
-      		// an axios.patch step
-        const addSellTrans = await Axios.patch(`users/${cartProductSeller}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[userId]: qty})
-        
-        //const addSellTrans = await Axios.patch(`users/${userId}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[cartProductSeller]: qty})
+      const addSellTrans = await Axios.patch(`users/${cartProductSeller}/sell_trans/${oldYearFormattedString}/${cartProductId}.json`, {[userId]: qty})
+      const deleteCart = await Axios.delete(`users/${userId}/cart.json`)
 
-          
-      // 3: Delete this record from the cart
-          // an axios.delete step
-          const deleteCart = await Axios.delete(`users/${userId}/cart.json`)
-
-
-
-      
-      
     
     }
 
-    
     
   }
       
     }// end if 
 
-
-  
-  
 }
 
-
-
-
-
-
-    // dispatch({ payload: yearDetails });
-    // console.log("action" + yearDetails)
-    // const res = await Axios.patch('/year.json', yearDetails)
-    // return res;
 }
 
 
