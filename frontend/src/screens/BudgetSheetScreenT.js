@@ -16,19 +16,20 @@ const prevYears = (currentYear) => {
   return prevYearsArr;
 };
 
+
 export default function BudgetSheetScreen() {
-  const [budgetDetails, setBudgetDetails] = useState("");
+  const [budgetDetails, setBudgetDetails] = useState({});
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const userId = userInfo.id;
+  
 
   const getBudgetDetails = async () => {
     const yearRes = await Axios.get("/year.json");
     const year = yearRes.data.session;
-
+    
     const userCompany = userId.substr(0, 3);
-    console.log(userCompany);
-    //console.log(year)
+ 
 
     console.log(userId);
     const userRes = await Axios.get(`/users/${userId}.json`);

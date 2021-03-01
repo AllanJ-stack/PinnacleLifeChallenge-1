@@ -1,20 +1,20 @@
 const {
     BUDGETSHEET_REQUEST,
-    BUDGETSHEET__SUCCESS,
-    BUDGETSHEET__FAIL,
+    BUDGETSHEET_SUCCESS,
+    BUDGETSHEET_FAIL,
 
   } = require('../constants/BudgetSheetConstants');
   
   export const budgetSheetReducer = (
-    state = { loading: true, budgetDetails: {} }, //empty object
+    state = { budgetDetails: {}, loading: true}, //empty object
     action
   ) => {
     switch (action.type) {
       case BUDGETSHEET_REQUEST:
         return { loading: true };
-      case BUDGETSHEET__SUCCESS:
+      case BUDGETSHEET_SUCCESS:
         return { loading: false, budgetDetails: action.payload };
-      case BUDGETSHEET__FAIL:
+      case BUDGETSHEET_FAIL:
         return { loading: false, error: action.payload };
       default:
         return state;

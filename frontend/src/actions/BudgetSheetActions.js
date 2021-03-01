@@ -56,6 +56,7 @@ for (let prevYear of prevYearsArr){
   
   // Template for each year
   budgetDetails[prevYear] = {
+    "year": prevYear,
   	"salary": 0,
     "total_commission":0,
   	"total_income": 0,
@@ -169,7 +170,8 @@ for (let prevYear of prevYearsArr){
 }
 console.log(budgetDetails)
 
-     dispatch({ type: BUDGETSHEET_SUCCESS, payload: budgetDetails });
+     dispatch({ type: BUDGETSHEET_SUCCESS, payload: budgetDetails});
+     
   } catch (error) {
     dispatch({ type: BUDGETSHEET_FAIL, payload: error.message });
   }
