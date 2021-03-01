@@ -48,7 +48,7 @@ export default function YearScreen() {
           <h1>Admin Dashboard</h1>
         </div>
         <div>
-        <h3>Current Year: {yearDetails}</h3>
+        <h3 onChange>Current Year: {yearDetails}</h3>
         </div>
         <div>
           <label htmlFor="yearText">Set Year</label>
@@ -66,6 +66,9 @@ export default function YearScreen() {
         </div>
         <div>
           <label />
+        </div>
+        <div>
+
         </div>
       </div>
     </div>

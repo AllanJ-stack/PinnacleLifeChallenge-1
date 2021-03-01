@@ -57,6 +57,7 @@ for (let prevYear of prevYearsArr){
   // Template for each year
   budgetDetails[prevYear] = {
     "year": prevYear,
+    "userId": userId,
   	"salary": 0,
     "total_commission":0,
   	"total_income": 0,
