@@ -1,0 +1,35 @@
+.objective {
+    font-size: 40px;
+    
+
+    display: absolute;
+
+    height: 30vh;
+    max-width: 78%;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: 100px;
+    margin-top: 20px;
+    /* border: 0.1rem black solid; 
+    background-color: #f8f8f8;
+    border-radius: 2rem; */
+  
+  }
+  @media screen and (max-width: 760px) {
+
+  .objective {
+    
+    display: absolute;
+    height: 100vh;
+    min-width: 98%;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: 0px;
+    margin-top: 20px;
+    /* border: 0.1rem black solid; 
+    font-size: 5px;
+    background-color: #f8f8f8;
+    border-radius: 2rem; */
+  
+  }
+  }

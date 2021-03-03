@@ -4,6 +4,7 @@ import { budgetSheetlist } from "../actions/BudgetSheetActions";
 import BudgetSheet from '../components/BudgetSheet'
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import './BudgetSheetScreen.css'
 
 export default function BudgetSheetScreen() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ console.log(userId)
 console.log(budgetDetails)
 
   return (
-    <div>
+    <div className="budget">
     {loading && <LoadingBox></LoadingBox>}
     {error && <MessageBox variant="danger">{error}</MessageBox>}
     {!loading && !error && userInfo &&

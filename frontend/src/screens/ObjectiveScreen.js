@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import LoadingBox from '../components/LoadingBox';
 import Axios from "axios";
 import { useSelector } from 'react-redux';
+import './ObjectiveScreen.css'
 
 export default function ObjectiveScreen() {
 
@@ -36,7 +37,7 @@ const userId = userInfo.company;
   
   return (
 
-    <div>
+    <div className="objective ">
 
       {Object.keys(objectiveDetails).length !== null ? (
       

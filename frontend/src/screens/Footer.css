@@ -1,0 +1,94 @@
+.footer {
+    /* background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); */
+    background: navy;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.5rem;
+    position: sticky;
+    top: 100%;
+    z-index: 999;
+    color: rgb(255, 255, 255);
+    margin-bottom: 16px;
+  font-weight: bold;
+  
+  }
+  
+  .footer-social-media {
+    display: inline-block;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+    justify-content: space-around;
+  }
+
+
+  
+
+  .footer-info  {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-info-left, .footer-info-center, .footer-info-right {
+    font-size: x-small;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30%;
+  }
+  
+  .footer-info__name, .footer-info__email, .footer-info__number {
+    margin-bottom: 10px;
+  }
+  
+  .footer-info__name, .footer-info__returns {
+    text-align: start;
+  }
+  
+  .footer-info__email, .footer-info__terms {
+    text-align: center;
+  }
+  
+
+
+  /* SOCIAL STUFF */
+.social-container {
+    display: inline-block;
+    flex-direction: row;
+    background:none;
+    padding: 0px 25px;
+    align-items: center;
+    align-content: center;
+
+  }
+  a.social {
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-flex;
+    justify-content: space-evenly;
+  }
+  
+  a.social:hover {
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  
+  a.youtube {
+    color: #eb3223;
+
+  }
+  
+  a.facebook {
+    color: #4968ad;
+  }
+  
+  a.twitter {
+    color: #49a1eb;
+  }
+  
+  a.github {
+    color: rgb(172, 171, 171);
+  }
+ 

@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/zygoh1986/PinnacleLifeChallenge#readme",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "express": "^4.17.1",
-    "firebase": "^8.2.7",
+    "firebase": "^8.2.9",
     "firebase-admin": "^9.5.0",
     "mongoose": "^5.11.16"
   },
