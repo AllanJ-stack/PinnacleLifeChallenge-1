@@ -10,6 +10,7 @@ import ObjectiveScreen from "./screens/ObjectiveScreen";
 import { signout } from "./actions/userActions";
 import DashboardScreen from "./screens/DashboardScreen"
 import BudgetSheetScreen from "./screens/BudgetSheetScreen";
+import Footer from './screens/Footer'
 
 export default function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -102,8 +103,11 @@ export default function App(props) {
           <Route path="/dashboard" component={DashboardScreen}></Route>
           <Route path="/budgetsheet" component={BudgetSheetScreen}></Route>
         </main>
-        <footer className="row center">All right reserved</footer>
+
+        <Footer/>
+        {/* <footer className="row center">All right reserved</footer> */}
       </div>
     </BrowserRouter>
   );
 }
+
